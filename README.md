@@ -1,51 +1,56 @@
-# MetaMagnet - Sistema de Gestão de Vendas
+# MetaMagnet - Streamlit Version
 
-Sistema completo para gestão de vendas, metas e comissões.
+Sistema de gestão de vendas e metas construído com Streamlit.
 
-## 🚀 Como executar
+## 🚀 Como Executar
 
-### Desenvolvimento
+### Localmente
 ```bash
-npm install
-npm run dev
+# Instalar dependências
+pip install -r requirements.txt
+
+# Executar aplicação
+streamlit run app.py
 ```
 
-### Produção
-```bash
-npm install
-npm start
-```
+### No Streamlit Cloud
+1. Faça upload dos arquivos para um repositório GitHub
+2. Acesse [Streamlit Cloud](https://streamlit.io/cloud)
+3. Conecte seu repositório
+4. Configure o arquivo principal como `app.py`
+5. Deploy automático!
 
-## 📦 Deploy
+## 📦 Estrutura do Projeto
 
-### Render.com (Recomendado)
-1. Faça fork deste repositório
-2. Conecte no Render.com
-3. Deploy automático
+- `app.py` - Aplicação principal Streamlit
+- `requirements.txt` - Dependências Python
+- `setup.sh` - Script de configuração
 
-### Alternativas
-- Vercel
-- Netlify
-- Heroku
-- Railway
+## 🎯 Funcionalidades
 
-## 🌐 URLs do Sistema
+- ✅ Dashboard com estatísticas em tempo real
+- ✅ Gestão de vendedores e performance
+- ✅ Controle de vendas e metas
+- ✅ Análise com IA integrada
+- ✅ Sistema de importação de dados
+- ✅ Interface responsiva e moderna
 
-- **Dashboard**: `/`
-- **Vendedores**: `/vendedores`
-- **Vendas**: `/vendas`
-- **Metas**: `/metas`
-- **Relatórios**: `/relatorios`
-- **Análise IA**: `/analiseia`
-- **Configurações**: `/configuracoes`
-- **Importação**: `/importacao`
+## 🌐 URLs
 
-## 🔧 API Endpoints
+- **Dashboard Principal**: Visualização geral das métricas
+- **Gestão de Vendedores**: Controle de equipe comercial
+- **Gestão de Vendas**: Análise de vendas e performance
+- **Metas**: Configuração e acompanhamento de metas
+- **Análise IA**: Insights inteligentes com IA
+- **Importação**: Integração com Google Sheets/CSV
 
-- `GET /api/health` - Status do sistema
-- `GET /api/dashboard/stats` - Estatísticas do dashboard
-- `GET /api/vendedores` - Lista de vendedores
+## 🔧 Tecnologias
+
+- **Streamlit** - Framework principal
+- **Pandas** - Manipulação de dados
+- **Plotly** - Visualizações gráficas
+- **NumPy** - Cálculos numéricos
 
 ## 📞 Suporte
 
-Sistema desenvolvido para gestão eficiente de vendas e metas.
+Sistema desenvolvido para gestão eficiente de equipes comerciais e acompanhamento de metas.

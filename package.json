@@ -1,23 +1,21 @@
 {
-  "name": "metamagnet-online",
+  "name": "metamagnet-render",
   "version": "1.0.0",
-  "description": "Sistema de gestão de vendas MetaMagnet - Online",
+  "description": "MetaMagnet - Sistema de gestão de vendas para Render.com",
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5"
   },
-  "devDependencies": {
-    "vite": "^4.4.5"
-  },
   "engines": {
-    "node": ">=16.0.0"
-  }
+    "node": ">=18.0.0"
+  },
+  "keywords": ["vendas", "metas", "gestão", "dashboard"],
+  "author": "MetaMagnet Team",
+  "license": "MIT"
 }
