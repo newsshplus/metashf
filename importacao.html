@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMagnet - Importação de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-64 p-4">
+            <div class="mb-6">
+                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+            </div>
+            <nav class="space-y-2">
+                <a href="index.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📊 Dashboard
+                </a>
+                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    👥 Vendedores
+                </a>
+                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    💰 Vendas
+                </a>
+                <a href="metas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🎯 Metas
+                </a>
+                <a href="relatorios.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📈 Relatórios
+                </a>
+                <a href="analiseia.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🤖 Análise IA
+                </a>
+                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    ⚙️ Configurações
+                </a>
+                <a href="importacao.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    📥 Importação
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <header class="flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold">📥 Importação de Dados</h1>
+                    <p class="text-sm text-gray-500">Conecte com Google Sheets para importar dados automaticamente</p>
+                </div>
+            </header>
+
+            <!-- Configuração Google Sheets -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">🔗 Conexão com Google Sheets</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">Google API Key</label>
+                            <input type="password" id="googleApiKey" class="w-full border rounded-lg px-3 py-2" placeholder="Sua chave API do Google">
+                            <p class="text-xs text-gray-500 mt-1">Necessária para acessar o Google Sheets</p>
+                        </div>
+                        
+                        <div class="flex space-x-3">
+                            <button onclick="testarConexao()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">
+                                🔄 Testar Conexão
+                            </button>
+                            <button onclick="salvarConfiguracao()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
+                                💾 Salvar Configuração
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">📋 Como obter API Key</h3>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <ol class="space-y-3 text-sm text-blue-800">
+                                <li>1. Acesse <a href="https://console.cloud.google.com/" class="underline" target="_blank">Google Cloud Console</a></li>
+                                <li>2. Crie um projeto ou selecione um existente</li>
+                                <li>3. Ative a API Google Sheets</li>
+                                <li>4. Vá em "Credenciais" → "Criar credenciais" → "Chave API"</li>
+                                <li>5. Cole a chave no campo ao lado</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Importação -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">📊 Importar Dados</h2>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Planilha Vinculada:</label>
+                    <div class="bg-gray-100 rounded-lg p-3">
+                        <a href="https://docs.google.com/spreadsheets/d/1ujsUFHQ4MYS6yIcIDnxZu-jLEoqdL7zzkuIAm_XdeAI/edit" 
+                           target="_blank" class="text-blue-600 hover:underline">
+                            https://docs.google.com/spreadsheets/d/1ujsUFHQ4MYS6yIcIDnxZu-jLEoqdL7zzkuIAm_XdeAI
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Colunas Esperadas:</label>
+                        <div class="bg-gray-50 rounded-lg p-3 text-sm">
+                            <div class="grid grid-cols-2 gap-2">
+                                <span>• Data</span>
+                                <span>• Nota</span>
+                                <span>• Cliente</span>
+                                <span>• Nome</span>
+                                <span>• Status</span>
+                                <span>• Valor</span>
+                                <span>• Tipo Pagamento</span>
+                                <span>• Condição Recebimento</span>
+                                <span>• Frete</span>
+                                <span>• Valor Itens</span>
+                                <span>• Representante</span>
+                                <span>• Valor Frete</span>
+                                <span>• Valor Desconto</span>
+                                <span>• Categoria</span>
+                                <span>• Cidade</span>
+                                <span>• UF</span>
+                                <span>• Tipo</span>
+                                <span>• CNPJ/CPF</span>
+                                <span>• Empresa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Configurações de Importação:</label>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="importarAutomaticamente" class="mr-2">
+                                    Importação automática a cada 30 minutos
+                                </label>
+                            </div>
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="manterHistorico" class="mr-2" checked>
+                                    Manter histórico de importações
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="iniciarImportacao()" class="w-full bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold">
+                    🚀 Iniciar Importação
+                </button>
+            </div>
+
+            <!-- Resultados -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">📋 Resultados da Importação</h2>
+                
+                <div id="resultadoImportacao" class="text-center py-8">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Nenhuma importação realizada</h3>
+                    <p class="text-gray-500">Configure a API Key e execute sua primeira importação</p>
+                </div>
+
+                <div id="dadosImportados" class="hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium">Dados Importados</h3>
+                        <div class="flex space-x-2">
+                            <button class="text-green-600 hover:text-green-800">📥 Exportar CSV</button>
+                            <button class="text-blue-600 hover:text-blue-800">📊 Visualizar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-2">Data</th>
+                                    <th class="px-4 py-2">Cliente</th>
+                                    <th class="px-4 py-2">Valor</th>
+                                    <th class="px-4 py-2">Representante</th>
+                                    <th class="px-4 py-2">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaDados">
+                                <!-- Dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="google-sheets-importer.js"></script>
+    <script>
+        feather.replace();
+
+        // Carregar configuração salva
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedApiKey = localStorage.getItem('googleApiKey');
+            if (savedApiKey) {
+                document.getElementById('googleApiKey').value = savedApiKey;
+                googleSheetsImporter.init(savedApiKey);
+            }
+        });
+
+        async function testarConexao() {
+            const apiKey = document.getElementById('googleApiKey').value;
+            if (!apiKey) {
+                alert('Por favor, insira sua Google API Key');
+                return;
+            }
+
+            try {
+                await googleSheetsImporter.init(apiKey);
+                const sucesso = await googleSheetsImporter.testarConexao();
+                
+                if (sucesso) {
+                    alert('✅ Conexão bem-sucedida! A API Key está válida.');
+                } else {
+                    alert('❌ Falha na conexão. Verifique a API Key e permissões.');
+                }
+            } catch (error) {
+                alert('Erro ao testar conexão: ' + error.message);
+            }
+        }
+
+        function salvarConfiguracao() {
+            const apiKey = document.getElementById('googleApiKey').value;
+            if (apiKey) {
+                localStorage.setItem('googleApiKey', apiKey);
+                alert('✅ Configuração salva com sucesso!');
+            } else {
+                alert('Por favor, insira uma API Key válida');
+            }
+        }
+
+        async function iniciarImportacao() {
+            const apiKey = document.getElementById('googleApiKey').value;
+            if (!apiKey) {
+                alert('Por favor, configure sua Google API Key primeiro');
+                return;
+            }
+
+            try {
+                await googleSheetsImporter.init(apiKey);
+                const dados = await googleSheetsImporter.importarDados();
+                
+                exibirResultados(dados);
+                salvarDadosLocalmente(dados);
+                
+            } catch (error) {
+                alert('Erro na importação: ' + error.message);
+            }
+        }
+
+        function exibirResultados(dados) {
+            const resultadoDiv = document.getElementById('resultadoImportacao');
+            const dadosDiv = document.getElementById('dadosImportados');
+            const tabela = document.getElementById('tabelaDados');
+            
+            resultadoDiv.classList.add('hidden');
+            dadosDiv.classList.remove('hidden');
+            
+            // Limpar tabela
+            tabela.innerHTML = '';
+            
+            // Adicionar primeiras 10 linhas para preview
+            dados.slice(0, 10).forEach(linha => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="px-4 py-2">${linha.Data || ''}</td>
+                    <td class="px-4 py-2">${linha.Cliente || ''}</td>
+                    <td class="px-4 py-2">${linha.Valor || ''}</td>
+                    <td class="px-4 py-2">${linha.Representante || ''}</td>
+                    <td class="px-4 py-2">${linha.Status || ''}</td>
+                `;
+                tabela.appendChild(tr);
+            });
+        }
+
+        function salvarDadosLocalmente(dados) {
+            localStorage.setItem('dadosImportados', JSON.stringify(dados));
+            localStorage.setItem('ultimaImportacao', new Date().toISOString());
+            
+            console.log('Dados salvos localmente:', dados.length, 'registros');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Python Standard Library modules only
+csv==1.0
+datetime==4.3
+json==2.0.9
+http.server==0.6

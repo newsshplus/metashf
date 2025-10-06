@@ -1,0 +1,23 @@
+{
+  "name": "metamagnet-online",
+  "version": "1.0.0",
+  "description": "Sistema de gestão de vendas MetaMagnet - Online",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

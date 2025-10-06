@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMagnet - Relatórios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-64 p-4">
+            <div class="mb-6">
+                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📊 Dashboard
+                </a>
+                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    👥 Vendedores
+                </a>
+                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    💰 Vendas
+                </a>
+                <a href="metas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🎯 Metas
+                </a>
+                <a href="relatorios.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    📈 Relatórios
+                </a>
+                <a href="analiseia.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🤖 Análise IA
+                </a>
+                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    ⚙️ Configurações
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <header class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">📈 Sistema de Relatórios</h1>
+                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg">
+                    📄 Novo Relatório
+                </button>
+            </header>
+
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow" onclick="showReport('vendas')">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500">Relatório de Vendas</p>
+                            <h3 class="text-xl font-bold mt-2">Vendas</h3>
+                        </div>
+                        <div class="bg-purple-500 bg-opacity-10 rounded-lg p-3">
+                            💰
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow" onclick="showReport('performance')">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500">Performance</p>
+                            <h3 class="text-xl font-bold mt-2">Performance</h3>
+                        </div>
+                        <div class="bg-green-500 bg-opacity-10 rounded-lg p-3">
+                            📊
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow" onclick="showReport('comissoes')">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500">Comissões</p>
+                            <h3 class="text-xl font-bold mt-2">Comissões</h3>
+                        </div>
+                        <div class="bg-yellow-500 bg-opacity-10 rounded-lg p-3">
+                            💳
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow" onclick="showReport('metas')">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500">Metas</p>
+                            <h3 class="text-xl font-bold mt-2">Metas</h3>
+                        </div>
+                        <div class="bg-blue-500 bg-opacity-10 rounded-lg p-3">
+                            🎯
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Filtros do Relatório</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Tipo de Relatório</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>Vendas</option>
+                            <option>Performance</option>
+                            <option>Comissões</option>
+                            <option>Metas</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Vendedor</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>Todos</option>
+                            <option>Laiana</option>
+                            <option>Emanuelle</option>
+                            <option>Ana</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Setor</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>Todos</option>
+                            <option>Televendas</option>
+                            <option>Mercado Livre</option>
+                            <option>Redes Sociais</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Período</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>Este Mês</option>
+                            <option>Mês Passado</option>
+                            <option>Este Trimestre</option>
+                            <option>Este Ano</option>
+                            <option>Personalizado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end space-x-3">
+                    <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                        👁️ Pré-visualizar
+                    </button>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg">
+                        📊 Aplicar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Relatório de Vendas -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-xl font-semibold">Relatório de Vendas</h2>
+                        <p class="text-gray-500">Período: Este Mês | Vendedor: Todos</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="text-purple-600 hover:text-purple-800">🖨️ Imprimir</button>
+                        <button class="text-purple-600 hover:text-purple-800">📥 Exportar PDF</button>
+                        <button class="text-purple-600 hover:text-purple-800">📊 Exportar Excel</button>
+                    </div>
+                </div>
+
+                <!-- Resumo -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-4">Resumo de Vendas</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-sm text-gray-500">Total de Vendas</p>
+                            <h5 class="text-2xl font-bold">R$ 458.759,82</h5>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-sm text-gray-500">Total de Comissões</p>
+                            <h5 class="text-2xl font-bold">R$ 5.381,17</h5>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-sm text-gray-500">Ticket Médio</p>
+                            <h5 class="text-2xl font-bold">R$ 458,75</h5>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-sm text-gray-500">Total de Vendas</p>
+                            <h5 class="text-2xl font-bold">1.000</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vendas por Vendedor -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-4">Vendas por Vendedor</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Vendedor</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Setor</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total de Vendas</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">% do Total</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Comissão</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4">Laiana Costa</td>
+                                    <td class="px-6 py-4">Televendas</td>
+                                    <td class="px-6 py-4 text-green-600">R$ 175.958,26</td>
+                                    <td class="px-6 py-4">38.36%</td>
+                                    <td class="px-6 py-4">R$ 3.519,17</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Emanuelle Santos</td>
+                                    <td class="px-6 py-4">Redes Sociais</td>
+                                    <td class="px-6 py-4 text-green-600">R$ 153.914,82</td>
+                                    <td class="px-6 py-4">33.54%</td>
+                                    <td class="px-6 py-4">R$ 3.078,30</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Ana Silva</td>
+                                    <td class="px-6 py-4">Televendas</td>
+                                    <td class="px-6 py-4 text-green-600">R$ 80.449,70</td>
+                                    <td class="px-6 py-4">17.53%</td>
+                                    <td class="px-6 py-4">R$ 1.208,25</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+        
+        function showReport(type) {
+            const reports = {
+                vendas: 'Relatório de Vendas',
+                performance: 'Relatório de Performance', 
+                comissoes: 'Relatório de Comissões',
+                metas: 'Relatório de Metas'
+            };
+            alert('Gerando: ' + reports[type]);
+        }
+        
+        // Export functions
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent.includes('Exportar')) {
+                btn.addEventListener('click', function() {
+                    const type = this.textContent.includes('PDF') ? 'PDF' : 'Excel';
+                    alert('Exportando relatório em ' + type);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

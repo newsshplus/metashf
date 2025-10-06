@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMagnet - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="shared.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-gray-800 text-white w-64 p-4">
+            <div class="mb-6">
+                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+            </div>
+            <nav class="space-y-2">
+                <a href="index.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    <i data-feather="home"></i><span class="ml-3 nav-text">Dashboard</span>
+                </a>
+                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="users"></i><span class="ml-3 nav-text">Vendedores</span>
+                </a>
+                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="dollar-sign"></i><span class="ml-3 nav-text">Vendas</span>
+                </a>
+                <a href="metas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="target"></i><span class="ml-3 nav-text">Metas</span>
+                </a>
+                <a href="relatorios.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="bar-chart"></i><span class="ml-3 nav-text">Relatórios</span>
+                </a>
+                <a href="analiseia.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="cpu"></i><span class="ml-3 nav-text">Análise IA</span>
+                </a>
+                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="settings"></i><span class="ml-3 nav-text">Configurações</span>
+                </a>
+                <a href="importacao.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="download"></i><span class="ml-3 nav-text">Importação</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 overflow-auto">
+            <header class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">📊 Dashboard Principal</h1>
+                <div class="text-sm text-gray-500" id="ultima-atualizacao">
+                    Última atualização: ${new Date().toLocaleString('pt-BR')}
+                </div>
+            </header>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Total Vendas</p>
+                    <h3 class="text-2xl font-bold mt-2" data-stat="total-vendas">R$ 458.759,82</h3>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Vendedores Ativos</p>
+                    <h3 class="text-2xl font-bold mt-2" data-stat="vendedores-ativos">5</h3>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Meta Atingida</p>
+                    <h3 class="text-2xl font-bold mt-2" data-stat="meta-atingida">85%</h3>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Comissões</p>
+                    <h3 class="text-2xl font-bold mt-2" data-stat="comissoes">R$ 8.245,36</h3>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">Ações Rápidas</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white p-3 rounded-lg">
+                        📥 Importar Vendas
+                    </button>
+                    <button class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-lg">
+                        👥 Novo Vendedor
+                    </button>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-lg">
+                        🎯 Definir Meta
+                    </button>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg">
+                        📊 Gerar Relatório
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vendedores em Destaque -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">🏆 Vendedores em Destaque</h2>
+                <div class="overflow-x-auto">
+                    <table id="tabela-vendedores" class="min-w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Vendedor</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Setor</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Meta</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Performance</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Comissão</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Dados serão preenchidos via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

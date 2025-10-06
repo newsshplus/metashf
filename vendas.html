@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMagnet - Metas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-64 p-4">
+            <div class="mb-6">
+                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📊 Dashboard
+                </a>
+                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    👥 Vendedores
+                </a>
+                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    💰 Vendas
+                </a>
+                <a href="metas.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    🎯 Metas
+                </a>
+                <a href="relatorios.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📈 Relatórios
+                </a>
+                <a href="analiseia.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🤖 Análise IA
+                </a>
+                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    ⚙️ Configurações
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <header class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">🎯 Gestão de Metas</h1>
+                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg">
+                    ➕ Nova Meta
+                </button>
+            </header>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Metas Ativas</p>
+                    <h3 class="text-2xl font-bold mt-2">12</h3>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Meta Média</p>
+                    <h3 class="text-2xl font-bold mt-2">R$ 120K</h3>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Atingimento</p>
+                    <h3 class="text-2xl font-bold mt-2">85%</h3>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6">
+                    <p class="text-gray-500">Comissões</p>
+                    <h3 class="text-2xl font-bold mt-2">R$ 8,2K</h3>
+                </div>
+            </div>
+
+            <!-- Metas Ativas -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">Metas Ativas - Julho 2023</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Vendedor</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Setor</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Meta</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Realizado</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Progresso</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Comissão</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                            👤
+                                        </div>
+                                        <div class="font-medium">Laiana Costa</div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Televendas</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">R$ 150.000,00</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-green-600">R$ 188.520,00</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-2 bg-gray-200 rounded-full mr-2">
+                                            <div class="h-2 bg-green-500 rounded-full" style="width: 125%"></div>
+                                        </div>
+                                        <span class="text-green-600 font-bold">125%</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-green-600">R$ 3.519,17</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                            👤
+                                        </div>
+                                        <div class="font-medium">Emanuelle Santos</div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Social</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">R$ 150.000,00</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-green-600">R$ 164.910,00</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-2 bg-gray-200 rounded-full mr-2">
+                                            <div class="h-2 bg-green-500 rounded-full" style="width: 109%"></div>
+                                        </div>
+                                        <span class="text-green-600 font-bold">109%</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-green-600">R$ 3.078,30</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                            👤
+                                        </div>
+                                        <div class="font-medium">Ana Silva</div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Televendas</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">R$ 100.000,00</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-yellow-600">R$ 78.110,00</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-2 bg-gray-200 rounded-full mr-2">
+                                            <div class="h-2 bg-yellow-500 rounded-full" style="width: 78%"></div>
+                                        </div>
+                                        <span class="text-yellow-600 font-bold">78%</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-yellow-600">R$ 1.208,25</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Configurações de Comissão -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Configurações de Comissão</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="font-medium mb-4">100%+</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Comissão</label>
+                                <div class="text-lg font-semibold">2.5%</div>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Bônus</label>
+                                <div class="text-lg font-semibold">R$ 500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="font-medium mb-4">80-99%</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Comissão</label>
+                                <div class="text-lg font-semibold">1.5%</div>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Bônus</label>
+                                <div class="text-lg font-semibold">R$ 0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="font-medium mb-4">60-79%</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Comissão</label>
+                                <div class="text-lg font-semibold">0.8%</div>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Bônus</label>
+                                <div class="text-lg font-semibold">R$ 0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="font-medium mb-4">0-59%</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Comissão</label>
+                                <div class="text-lg font-semibold">0%</div>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-500 mb-1">Bônus</label>
+                                <div class="text-lg font-semibold">R$ 0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

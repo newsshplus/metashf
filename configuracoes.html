@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMagnet - Configurações</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-64 p-4">
+            <div class="mb-6">
+                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+            </div>
+            <nav class="space-y-2">
+                <a href="index.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📊 Dashboard
+                </a>
+                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    👥 Vendedores
+                </a>
+                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    💰 Vendas
+                </a>
+                <a href="metas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🎯 Metas
+                </a>
+                <a href="relatorios.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📈 Relatórios
+                </a>
+                <a href="analiseia.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🤖 Análise IA
+                </a>
+                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    ⚙️ Configurações
+                </a>
+                <a href="importacao.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📥 Importação
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <header class="flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold">⚙️ Configurações do Sistema</h1>
+                    <p class="text-sm text-gray-500">Personalize e configure o MetaMagnet</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                        🔄 Redefinir
+                    </button>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg">
+                        💾 Salvar Tudo
+                    </button>
+                </div>
+            </header>
+
+            <!-- Abas -->
+            <div class="bg-white rounded-xl shadow mb-6">
+                <div class="border-b border-gray-200">
+                    <nav class="flex space-x-8 px-6">
+                        <button class="border-b-2 border-purple-600 text-purple-600 py-4 font-medium">Geral</button>
+                        <button class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 py-4 font-medium">Aparência</button>
+                        <button class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 py-4 font-medium">Notificações</button>
+                        <button class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 py-4 font-medium">Backup</button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Configurações Gerais -->
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">Configurações Gerais</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Nome da Empresa</label>
+                            <input type="text" class="w-full border rounded-lg px-3 py-2" placeholder="Sua Empresa Ltda.">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">CNPJ</label>
+                            <input type="text" class="w-full border rounded-lg px-3 py-2" placeholder="00.000.000/0000-00">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Moeda Padrão</label>
+                            <select class="w-full border rounded-lg px-3 py-2">
+                                <option>Real Brasileiro (R$)</option>
+                                <option>Dólar Americano ($)</option>
+                                <option>Euro (€)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Formato de Data</label>
+                            <select class="w-full border rounded-lg px-3 py-2">
+                                <option>DD/MM/AAAA</option>
+                                <option>MM/DD/AAAA</option>
+                                <option>AAAA-MM-DD</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">Configurações de Vendas</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <label class="block text-sm font-medium">Atualização Automática</label>
+                                <p class="text-sm text-gray-500">Importar automaticamente do Google Sheets</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Intervalo de Atualização</label>
+                            <select class="w-full border rounded-lg px-3 py-2">
+                                <option>15 minutos</option>
+                                <option>30 minutos</option>
+                                <option>1 hora</option>
+                                <option>2 horas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backup -->
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">Backup e Restauração</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6 text-center">
+                            <div class="text-3xl mb-4">📥</div>
+                            <h3 class="font-medium mb-2">Backup dos Dados</h3>
+                            <p class="text-sm text-gray-500 mb-4">Faça backup de todos os dados</p>
+                            <button class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
+                                📥 Fazer Backup
+                            </button>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-6 text-center">
+                            <div class="text-3xl mb-4">📤</div>
+                            <h3 class="font-medium mb-2">Restaurar Dados</h3>
+                            <p class="text-sm text-gray-500 mb-4">Restaure de um backup</p>
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">
+                                📤 Restaurar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script>
+        feather.replace();
+        
+        // Configurações
+        document.querySelector('.bg-purple-500').addEventListener('click', function() {
+            alert('✅ Configurações salvas com sucesso!');
+        });
+        
+        // Backup
+        document.querySelector('.bg-green-500').addEventListener('click', function() {
+            alert('📁 Criando backup dos dados...\nBackup salvo localmente.');
+        });
+        
+        // Restore
+        document.querySelector('.bg-blue-500').addEventListener('click', function() {
+            alert('🔄 Selecione o arquivo de backup para restaurar.');
+        });
+    </script>
+</body>
+</html>

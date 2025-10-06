@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMagnet - Análise IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-64 p-4">
+            <div class="mb-6">
+                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📊 Dashboard
+                </a>
+                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    👥 Vendedores
+                </a>
+                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    💰 Vendas
+                </a>
+                <a href="metas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    🎯 Metas
+                </a>
+                <a href="relatorios.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    📈 Relatórios
+                </a>
+                <a href="analiseia.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    🤖 Análise IA
+                </a>
+                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    ⚙️ Configurações
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <header class="flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold">🤖 Análise com Inteligência Artificial</h1>
+                    <p class="text-sm text-gray-500">Insights detalhados usando IA</p>
+                </div>
+                <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg">
+                    🚀 Executar Análise
+                </button>
+            </header>
+
+            <!-- Configuração -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">Configuração da IA</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">Configuração da API</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Groq API Key</label>
+                                <input type="password" class="w-full border rounded-lg px-3 py-2" placeholder="gsk_...">
+                                <p class="text-xs text-gray-500 mt-1">Sua chave é armazenada localmente</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Modelo de IA</label>
+                                <select class="w-full border rounded-lg px-3 py-2">
+                                    <option>Llama 3.3 70B Versatile</option>
+                                    <option>Mixtral 8x7B Instruct</option>
+                                    <option>Gemma2 9B IT</option>
+                                </select>
+                            </div>
+                            <div class="flex space-x-3">
+                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                                    📡 Testar Conexão
+                                </button>
+                                <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
+                    💾 Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">Como obter API Key</h3>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <ol class="space-y-3 text-sm text-blue-800">
+                                <li>1. Acesse console.groq.com</li>
+                                <li>2. Crie conta gratuita</li>
+                                <li>3. Vá em API Keys</li>
+                                <li>4. Crie nova chave</li>
+                                <li>5. Cole no campo ao lado</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parâmetros -->
+            <div class="bg-white rounded-xl shadow p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">Parâmetros da Análise</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Data Início</label>
+                        <input type="date" class="w-full border rounded-lg px-3 py-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Data Fim</label>
+                        <input type="date" class="w-full border rounded-lg px-3 py-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Tipo de Análise</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option>Performance de Vendedores</option>
+                            <option>Tendências de Vendas</option>
+                            <option>Previsões Futuras</option>
+                            <option>Insights Gerais</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados -->
+            <div class="bg-white rounded-xl shadow p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-semibold">Resultados da Análise</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-purple-600 hover:text-purple-800">📥 Exportar</button>
+                        <button class="text-gray-500 hover:text-gray-700">🗑️ Limpar</button>
+                    </div>
+                </div>
+
+                <!-- Estado Inicial -->
+                <div class="text-center py-12">
+                    <div class="max-w-md mx-auto">
+                        <div class="text-6xl mb-4">🤖</div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Nenhuma análise executada</h3>
+                        <p class="text-gray-500 mb-6">
+                            Configure a API Key e execute sua primeira análise para obter insights inteligentes.
+                        </p>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg">
+                            🚀 Executar Primeira Análise
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Insights seriam adicionados aqui dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+        
+        // Simular análise IA
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent.includes('Executar')) {
+                btn.addEventListener('click', function() {
+                    const hasApiKey = document.querySelector('input[type="password"]').value.length > 0;
+                    if (!hasApiKey) {
+                        alert('⚠️ Configure sua API Key do Groq primeiro!');
+                        return;
+                    }
+                    
+                    alert('🔮 Analisando dados com IA...\nIsso pode levar alguns segundos.');
+                    
+                    // Simular processamento
+                    setTimeout(() => {
+                        alert('✅ Análise concluída!\n\n📊 Insights gerados:\n• Laiana é top performer (125%)\n• Oportunidade em vendas médias\n• Recomendação: Treinamento para Ana');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
