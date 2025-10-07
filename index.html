@@ -6,69 +6,59 @@
     <title>MetaMagnet - Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="shared.css">
+    <style>
+        .sidebar { transition: all 0.3s ease; }
+        .sidebar.collapsed { width: 80px; }
+        .sidebar.collapsed .nav-text { display: none; }
+    </style>
 </head>
 <body class="bg-gray-50">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="sidebar bg-gray-800 text-white w-64 p-4">
-            <div class="mb-6">
-                <h2 class="font-bold text-xl">⚡ MetaMagnet</h2>
+        <div class="sidebar bg-gray-800 text-white w-64">
+            <div class="p-4 border-b border-gray-700">
+                <div class="flex items-center">
+                    <i data-feather="bar-chart-2" class="text-purple-500 mr-2"></i>
+                    <span class="font-bold text-xl">MetaMagnet</span>
+                </div>
             </div>
-            <nav class="space-y-2">
-                <a href="index.html" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
-                    <i data-feather="home"></i><span class="ml-3 nav-text">Dashboard</span>
+            <nav class="p-2">
+                <a href="#" class="flex items-center p-2 rounded-lg bg-purple-600 text-white">
+                    <i data-feather="home"></i><span class="ml-3">Dashboard</span>
                 </a>
-                <a href="vendedores.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="users"></i><span class="ml-3 nav-text">Vendedores</span>
+                <a href="#" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="users"></i><span class="ml-3">Vendedores</span>
                 </a>
-                <a href="vendas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="dollar-sign"></i><span class="ml-3 nav-text">Vendas</span>
+                <a href="#" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="dollar-sign"></i><span class="ml-3">Vendas</span>
                 </a>
-                <a href="metas.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="target"></i><span class="ml-3 nav-text">Metas</span>
-                </a>
-                <a href="relatorios.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="bar-chart"></i><span class="ml-3 nav-text">Relatórios</span>
-                </a>
-                <a href="analiseia.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="cpu"></i><span class="ml-3 nav-text">Análise IA</span>
-                </a>
-                <a href="configuracoes.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="settings"></i><span class="ml-3 nav-text">Configurações</span>
-                </a>
-                <a href="importacao.html" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
-                    <i data-feather="download"></i><span class="ml-3 nav-text">Importação</span>
+                <a href="#" class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700">
+                    <i data-feather="target"></i><span class="ml-3">Metas</span>
                 </a>
             </nav>
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 p-6 overflow-auto">
-            <header class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold">📊 Dashboard Principal</h1>
-                <div class="text-sm text-gray-500" id="ultima-atualizacao">
-                    Última atualização: ${new Date().toLocaleString('pt-BR')}
-                </div>
-            </header>
+        <div class="flex-1 p-6">
+            <h1 class="text-2xl font-bold mb-6">Dashboard Principal</h1>
 
             <!-- Stats -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
                 <div class="bg-white rounded-xl shadow p-6">
                     <p class="text-gray-500">Total Vendas</p>
-                    <h3 class="text-2xl font-bold mt-2" data-stat="total-vendas">R$ 458.759,82</h3>
+                    <h3 class="text-2xl font-bold mt-2">R$ 458.759,82</h3>
                 </div>
                 <div class="bg-white rounded-xl shadow p-6">
                     <p class="text-gray-500">Vendedores Ativos</p>
-                    <h3 class="text-2xl font-bold mt-2" data-stat="vendedores-ativos">5</h3>
+                    <h3 class="text-2xl font-bold mt-2">5</h3>
                 </div>
                 <div class="bg-white rounded-xl shadow p-6">
                     <p class="text-gray-500">Meta Atingida</p>
-                    <h3 class="text-2xl font-bold mt-2" data-stat="meta-atingida">85%</h3>
+                    <h3 class="text-2xl font-bold mt-2">85%</h3>
                 </div>
                 <div class="bg-white rounded-xl shadow p-6">
                     <p class="text-gray-500">Comissões</p>
-                    <h3 class="text-2xl font-bold mt-2" data-stat="comissoes">R$ 8.245,36</h3>
+                    <h3 class="text-2xl font-bold mt-2">R$ 8.245,36</h3>
                 </div>
             </div>
 
@@ -90,34 +80,18 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Vendedores em Destaque -->
-            <div class="bg-white rounded-xl shadow p-6">
-                <h2 class="text-xl font-semibold mb-4">🏆 Vendedores em Destaque</h2>
-                <div class="overflow-x-auto">
-                    <table id="tabela-vendedores" class="min-w-full">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Vendedor</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Setor</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Meta</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Performance</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Comissão</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <!-- Dados serão preenchidos via JavaScript -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 
-    <script src="app.js"></script>
     <script>
         feather.replace();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            document.querySelector('[data-feather="home"]').closest('a').addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.toggle('collapsed');
+            });
+        });
     </script>
 </body>
 </html>
